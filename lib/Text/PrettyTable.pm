@@ -4,12 +4,12 @@ package Text::PrettyTable;
 
 Text::PrettyTable - Allow for auto-fixed-widith formatting of raw data
 
-$Id: PrettyTable.pm,v 1.11 2014/03/07 17:37:08 paul Exp $
-
 =cut
 
 use strict;
 use warnings;
+
+our $VERSION = '0.02';
 
 our @border = ('| ', ' | ', ' |', ' ',
                '+-', '-+-', '-+', '-',
