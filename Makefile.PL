@@ -8,9 +8,7 @@ WriteMakefile(
     PREREQ_PM         => {}, # e.g., Module::Name => 1.1
     ABSTRACT_FROM     => 'lib/Text/PrettyTable.pm', # retrieve abstract from module
     AUTHOR            => 'Rob Brown <bbb@cpan.org>',
-    #LICENSE           => 'perl',
-    #Value must be from legacy list of licenses here
-    #https://metacpan.org/pod/Module::Build::API
+    LICENSE           => 'artistic',
     LIBS              => [''], # e.g., '-lm'
     DEFINE            => '', # e.g., '-DHAVE_SOMETHING'
     INC               => '-I.', # e.g., '-I. -I/usr/include/other'
