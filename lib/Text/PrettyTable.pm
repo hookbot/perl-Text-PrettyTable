@@ -152,6 +152,10 @@ sub _tablify {
 
 __END__
 
+=pod
+
+=encoding utf8
+
 =head1 SYNOPSIS
 
     perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text([qw(Hello Hey There)])'
