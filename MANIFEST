@@ -3,5 +3,5 @@ LICENSE
 Makefile.PL
 MANIFEST
 README
-t/Text-PrettyTable.t
+t/00-compile.t
 lib/Text/PrettyTable.pm
