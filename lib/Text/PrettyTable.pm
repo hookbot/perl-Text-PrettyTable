@@ -1,99 +1,83 @@
 package Text::PrettyTable;
 
-use 5.010;
+use 5.008000;
 use strict;
 use warnings;
 
-our $VERSION = '0.00'; # VERSION
+require Exporter;
+
+our @ISA = qw(Exporter);
+
+# Items to export into callers namespace by default. Note: do not export
+# names by default without a very good reason. Use EXPORT_OK instead.
+# Do not simply export all your public functions/methods/constants.
+
+# This allows declaration	use Text::PrettyTable ':all';
+# If you do not need this, moving things directly into @EXPORT or @EXPORT_OK
+# will save memory.
+our %EXPORT_TAGS = ( 'all' => [ qw(
+	
+) ] );
+
+our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
+
+our @EXPORT = qw(
+	
+);
+
+our $VERSION = '0.01';
+
+# Preloaded methods go here.
 
 1;
-#ABSTRACT: Create a pretty formatted table using ASCII characters
-
-
 __END__
-=pod
+# Below is stub documentation for your module. You'd better edit it!
 
 =head1 NAME
 
-Text::PrettyTable - Create a pretty formatted table using ASCII characters
-
-=head1 VERSION
-
-version 0.00
+Text::PrettyTable - Perl extension for blah blah blah
 
 =head1 SYNOPSIS
 
+  use Text::PrettyTable;
+  blah blah blah
+
 =head1 DESCRIPTION
 
-B<NOTE: THIS MODULE HAS NOT BEEN IMPLEMENTED. CURRENT RELEASE IS A LAND GRAB.>
+Stub documentation for Text::PrettyTable, created by h2xs. It looks like the
+author of the extension was negligent enough to leave the stub
+unedited.
 
-This module is yet another text table formatter module, with focus on
-I<prettiness> (over other things such as verbatim output of data). Planned
-features:
+Blah blah blah.
 
-=over 4
+=head2 EXPORT
 
-=item * Colors and color themes
+None by default.
 
-Will be used by default. Output will automatically degrade to black and white if
-terminal does not support color.
 
-=item * Extended ANSI characters
-
-To make pretty table borders. Output will automatically degrade to ASCII
-characters if terminal does not support extended ANSI.
-
-=item * Autowidth and content clipping
-
-Table width will not overlap (exceed terminal width) by default; instead table
-contents will be clipped. Remember, the main focus is on prettiness.
-
-=item * Autoformatting of data
-
-Will detect column names (among other things) to find out how to best display
-the data. For example, columns with names like "send_date" or "ctime" and
-containing Unix timestamps data will be autoformatted to "Y-m-d H:M:S", or "X
-hours ago". So will DateTime objects. Numbers will be right-aligned, possibly
-with thousand-separators. Formatting will be locale-aware. And so on.
-
-=item * Automatic column reordering
-
-By default it will try to reorder column if it makes sense, e.g. C<id> columns
-first. Of course, this behavior can be turned off.
-
-=item * Unicode support
-
-Stay pretty when table cells contain full width characters.
-
-=item * Backends
-
-Mainly to support graceful degradation. Different backends include: ANSI, ASCII,
-CSV/column-delimited, HTML.
-
-=back
 
 =head1 SEE ALSO
 
-L<Text::Table>
+Mention other useful documentation such as the documentation of
+related modules or operating system documentation (such as man pages
+in UNIX), or any relevant external documentation such as RFCs or
+standards.
 
-L<Text::SimpleTable>
+If you have a mailing list set up for your module, mention it here.
 
-L<Text::ASCIITable>, which I usually used.
-
-L<Text::UnicodeTable::Simple>
-
-L<Table::Simple> (uses Moose)
+If you have a web site set up for your module, mention it here.
 
 =head1 AUTHOR
 
-Steven Haryanto <stevenharyanto@gmail.com>
+Rob Brown, E<lt>bbb@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Steven Haryanto.
+Copyright (C) 2025 by Rob Brown
 
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself, either Perl version 5.34.1 or,
+at your option, any later version of Perl 5 you may have available.
+
 
 =cut
-

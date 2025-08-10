@@ -1,14 +1,7 @@
-Build.PL
 Changes
 LICENSE
+Makefile.PL
 MANIFEST
-MANIFEST.SKIP
-META.json
-META.yml
 README
-dist.ini
+t/Text-PrettyTable.t
 lib/Text/PrettyTable.pm
-t/00-compile.t
-t/release-pod-coverage.t
-t/release-pod-syntax.t
-weaver.ini

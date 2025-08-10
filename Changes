@@ -1,5 +1,6 @@
-Revision history for Text-PrettyTable
+Revision history for Perl extension Text::PrettyTable.
 
-0.00    2012-07-19 (SHARYANTO)
+0.01  Sat Aug  9 13:39:22 2025
+	- original version; created by h2xs 1.23 with options
+		-b 5.8.0 -Afn Text::PrettyTable
 
-        First release, empty implementation (land grab).

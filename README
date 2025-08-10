@@ -1,75 +1,40 @@
-NAME
-    Text::PrettyTable - Create a pretty formatted table using ASCII
-    characters
+Text-PrettyTable version 0.01
+=============================
 
-VERSION
-    version 0.00
+The README is used to introduce the module and provide instructions on
+how to install the module, any machine dependencies it may have (for
+example C compilers and installed libraries) and any other information
+that should be provided before the module is installed.
 
-SYNOPSIS
-DESCRIPTION
-    NOTE: THIS MODULE HAS NOT BEEN IMPLEMENTED. CURRENT RELEASE IS A LAND
-    GRAB.
+A README file is required for CPAN modules since CPAN extracts the
+README file from a module distribution so that people browsing the
+archive can use it get an idea of the modules uses. It is usually a
+good idea to provide version information here so that people can
+decide whether fixes for the module are worth downloading.
 
-    This module is yet another text table formatter module, with focus on
-    *prettiness* (over other things such as verbatim output of data).
-    Planned features:
+INSTALLATION
 
-    *   Colors and color themes
+To install this module type the following:
 
-        Will be used by default. Output will automatically degrade to black
-        and white if terminal does not support color.
+   perl Makefile.PL
+   make
+   make test
+   make install
 
-    *   Extended ANSI characters
+DEPENDENCIES
 
-        To make pretty table borders. Output will automatically degrade to
-        ASCII characters if terminal does not support extended ANSI.
+This module requires these other modules and libraries:
 
-    *   Autowidth and content clipping
+  blah blah blah
 
-        Table width will not overlap (exceed terminal width) by default;
-        instead table contents will be clipped. Remember, the main focus is
-        on prettiness.
+COPYRIGHT AND LICENCE
 
-    *   Autoformatting of data
+Put the correct copyright and licence information here.
 
-        Will detect column names (among other things) to find out how to
-        best display the data. For example, columns with names like
-        "send_date" or "ctime" and containing Unix timestamps data will be
-        autoformatted to "Y-m-d H:M:S", or "X hours ago". So will DateTime
-        objects. Numbers will be right-aligned, possibly with
-        thousand-separators. Formatting will be locale-aware. And so on.
+Copyright (C) 2025 by Rob Brown
 
-    *   Automatic column reordering
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself, either Perl version 5.34.1 or,
+at your option, any later version of Perl 5 you may have available.
 
-        By default it will try to reorder column if it makes sense, e.g.
-        "id" columns first. Of course, this behavior can be turned off.
-
-    *   Unicode support
-
-        Stay pretty when table cells contain full width characters.
-
-    *   Backends
-
-        Mainly to support graceful degradation. Different backends include:
-        ANSI, ASCII, CSV/column-delimited, HTML.
-
-SEE ALSO
-    Text::Table
-
-    Text::SimpleTable
-
-    Text::ASCIITable, which I usually used.
-
-    Text::UnicodeTable::Simple
-
-    Table::Simple (uses Moose)
-
-AUTHOR
-    Steven Haryanto <stevenharyanto@gmail.com>
-
-COPYRIGHT AND LICENSE
-    This software is copyright (c) 2012 by Steven Haryanto.
-
-    This is free software; you can redistribute it and/or modify it under
-    the same terms as the Perl 5 programming language system itself.
 
