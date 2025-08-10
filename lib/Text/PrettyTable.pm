@@ -154,21 +154,21 @@ __END__
 
 =head1 SYNOPSIS
 
-    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text([qw(Hello Hey There)])'
+    perl -MText::PrettyTable -e 'print pretty_table([qw(Hello Hey There)])'
     ┌───────┐
     │ Hello │
     │ Hey   │
     │ There │
     └───────┘
 
-    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text([qw(99 1000 2)])'
+    perl -MText::PrettyTable -e 'print pretty_table([qw(99 1000 2)])'
     ┌──────┐
     │   99 │
     │ 1000 │
     │    2 │
     └──────┘
 
-    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text([qw(99 1000 2)], {title => ["Stuff"], unibox => 0})'
+    perl -MText::PrettyTable -e 'print pretty_table([qw(99 1000 2)], {title => ["Stuff"], unibox => 0})'
     +-------+
     | Stuff |
     +-------+
@@ -177,14 +177,14 @@ __END__
     |     2 |
     +-------+
 
-    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text({id=>23,hi => "HI", cool => 1})'
+    perl -MText::PrettyTable -e 'print pretty_table({id=>23,hi => "HI", cool => 1})'
     ┌──────┬────┐
     │ id   │ 23 │
     │ cool │ 1  │
     │ hi   │ HI │
     └──────┴────┘
 
-    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text({id=>23,hi => "HI", cool => 1}, {title => [qw(Key Value)]})'
+    perl -MText::PrettyTable -e 'print pretty_table({id=>23,hi => "HI", cool => 1}, {title => [qw(Key Value)]})'
     ┌──────┬───────┐
     │ Key  │ Value │
     ├──────┼───────┤
@@ -193,7 +193,7 @@ __END__
     │ hi   │ HI    │
     └──────┴───────┘
 
-    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text([{id=>23,hi => "HI", cool => 1}, {id => 7,hi => "George", cool => "two"}])'
+    perl -MText::PrettyTable -e 'print pretty_table([{id=>23,hi => "HI", cool => 1}, {id => 7,hi => "George", cool => "two"}])'
     ┌────┬──────┬────────┐
     │ id │ cool │ hi     │
     ├────┼──────┼────────┤
@@ -201,7 +201,7 @@ __END__
     │  7 │ two  │ George │
     └────┴──────┴────────┘
 
-    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text({id => 23, hi => "HI", cool => [qw(a cee)]})'
+    perl -MText::PrettyTable -e 'print pretty_table({id => 23, hi => "HI", cool => [qw(a cee)]})'
     ┌──────┬─────────┐
     │ id   │ 23      │
     │ cool │ ┌─────┐ │
@@ -211,7 +211,7 @@ __END__
     │ hi   │ HI      │
     └──────┴─────────┘
 
-    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text([{id => 23, hi => "HI", cool => [qw(a cee)]}])'
+    perl -MText::PrettyTable -e 'print pretty_table([{id => 23, hi => "HI", cool => [qw(a cee)]}])'
     ┌────┬─────────┬────┐
     │ id │ cool    │ hi │
     ├────┼─────────┼────┤
@@ -221,7 +221,7 @@ __END__
     │    │ └─────┘ │    │
     └────┴─────────┴────┘
 
-    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text([{id=>23,hi => "HI", cool => 1}, "Wow", {hi => "Row1\nRow2", cool => 98, id=>""}])'
+    perl -MText::PrettyTable -e 'print pretty_table([{id=>23,hi => "HI", cool => 1}, "Wow", {hi => "Row1\nRow2", cool => 98, id=>""}])'
     ┌────┬──────┬──────┐
     │ id │ cool │ hi   │
     ├────┼──────┼──────┤
@@ -231,7 +231,7 @@ __END__
     │    │      │ Row2 │
     └────┴──────┴──────┘
 
-    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text([({one => "A"x50, two => "B"x50})x2])'
+    perl -MText::PrettyTable -e 'print pretty_table([({one => "A"x50, two => "B"x50})x2])'
     ┌────────────────────────────────────────────────────┬────────────────────────────────────────────────────┐
     │ one                                                │ two                                                │
     ├────────────────────────────────────────────────────┼────────────────────────────────────────────────────┤
@@ -239,7 +239,7 @@ __END__
     │ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA │ BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB │
     └────────────────────────────────────────────────────┴────────────────────────────────────────────────────┘
 
-    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text([({one => "A"x50, two => "B"x50})x2], {auto_collapse => 100})'
+    perl -MText::PrettyTable -e 'print pretty_table([({one => "A"x50, two => "B"x50})x2], {auto_collapse => 100})'
     ┌──────────────────────────────────────────────────────────────┐
     │ ┌─────┬────────────────────────────────────────────────────┐ │
     │ │ one │ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA │ │
