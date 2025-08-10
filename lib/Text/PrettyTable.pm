@@ -1,8 +1,8 @@
-package PrettyTable;
+package Text::PrettyTable;
 
 =head1 NAME
 
-PrettyTable - Allow for auto-fixed-widith formatting of raw data
+Text::PrettyTable - Allow for auto-fixed-widith formatting of raw data
 
 $Id: PrettyTable.pm,v 1.11 2014/03/07 17:37:08 paul Exp $
 
@@ -154,21 +154,21 @@ __END__
 
 =head1 SYNOPSIS
 
-    perl -Ilib -e 'use PrettyTable; print PrettyTable->plain_text([qw(Hello Hey There)])'
+    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text([qw(Hello Hey There)])'
     ┌───────┐
     │ Hello │
     │ Hey   │
     │ There │
     └───────┘
 
-    perl -Ilib -e 'use PrettyTable; print PrettyTable->plain_text([qw(99 1000 2)])'
+    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text([qw(99 1000 2)])'
     ┌──────┐
     │   99 │
     │ 1000 │
     │    2 │
     └──────┘
 
-    perl -Ilib -e 'use PrettyTable; print PrettyTable->plain_text([qw(99 1000 2)], {title => ["Stuff"], unibox => 0})'
+    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text([qw(99 1000 2)], {title => ["Stuff"], unibox => 0})'
     +-------+
     | Stuff |
     +-------+
@@ -177,14 +177,14 @@ __END__
     |     2 |
     +-------+
 
-    perl -Ilib -e 'use PrettyTable; print PrettyTable->plain_text({id=>23,hi => "HI", cool => 1})'
+    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text({id=>23,hi => "HI", cool => 1})'
     ┌──────┬────┐
     │ id   │ 23 │
     │ cool │ 1  │
     │ hi   │ HI │
     └──────┴────┘
 
-    perl -Ilib -e 'use PrettyTable; print PrettyTable->plain_text({id=>23,hi => "HI", cool => 1}, {title => [qw(Key Value)]})'
+    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text({id=>23,hi => "HI", cool => 1}, {title => [qw(Key Value)]})'
     ┌──────┬───────┐
     │ Key  │ Value │
     ├──────┼───────┤
@@ -193,7 +193,7 @@ __END__
     │ hi   │ HI    │
     └──────┴───────┘
 
-    perl -Ilib -e 'use PrettyTable; print PrettyTable->plain_text([{id=>23,hi => "HI", cool => 1}, {id => 7,hi => "George", cool => "two"}])'
+    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text([{id=>23,hi => "HI", cool => 1}, {id => 7,hi => "George", cool => "two"}])'
     ┌────┬──────┬────────┐
     │ id │ cool │ hi     │
     ├────┼──────┼────────┤
@@ -201,7 +201,7 @@ __END__
     │  7 │ two  │ George │
     └────┴──────┴────────┘
 
-    perl -Ilib -e 'use PrettyTable; print PrettyTable->plain_text({id => 23, hi => "HI", cool => [qw(a cee)]})'
+    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text({id => 23, hi => "HI", cool => [qw(a cee)]})'
     ┌──────┬─────────┐
     │ id   │ 23      │
     │ cool │ ┌─────┐ │
@@ -211,7 +211,7 @@ __END__
     │ hi   │ HI      │
     └──────┴─────────┘
 
-    perl -Ilib -e 'use PrettyTable; print PrettyTable->plain_text([{id => 23, hi => "HI", cool => [qw(a cee)]}])'
+    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text([{id => 23, hi => "HI", cool => [qw(a cee)]}])'
     ┌────┬─────────┬────┐
     │ id │ cool    │ hi │
     ├────┼─────────┼────┤
@@ -221,7 +221,7 @@ __END__
     │    │ └─────┘ │    │
     └────┴─────────┴────┘
 
-    perl -Ilib -e 'use PrettyTable; print PrettyTable->plain_text([{id=>23,hi => "HI", cool => 1}, "Wow", {hi => "Row1\nRow2", cool => 98, id=>""}])'
+    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text([{id=>23,hi => "HI", cool => 1}, "Wow", {hi => "Row1\nRow2", cool => 98, id=>""}])'
     ┌────┬──────┬──────┐
     │ id │ cool │ hi   │
     ├────┼──────┼──────┤
@@ -231,7 +231,7 @@ __END__
     │    │      │ Row2 │
     └────┴──────┴──────┘
 
-    perl -Ilib -e 'use PrettyTable; print PrettyTable->plain_text([({one => "A"x50, two => "B"x50})x2])'
+    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text([({one => "A"x50, two => "B"x50})x2])'
     ┌────────────────────────────────────────────────────┬────────────────────────────────────────────────────┐
     │ one                                                │ two                                                │
     ├────────────────────────────────────────────────────┼────────────────────────────────────────────────────┤
@@ -239,7 +239,7 @@ __END__
     │ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA │ BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB │
     └────────────────────────────────────────────────────┴────────────────────────────────────────────────────┘
 
-    perl -Ilib -e 'use PrettyTable; print PrettyTable->plain_text([({one => "A"x50, two => "B"x50})x2], {auto_collapse => 100})'
+    perl -Ilib -e 'use Text::PrettyTable; print Text::PrettyTable->plain_text([({one => "A"x50, two => "B"x50})x2], {auto_collapse => 100})'
     ┌──────────────────────────────────────────────────────────────┐
     │ ┌─────┬────────────────────────────────────────────────────┐ │
     │ │ one │ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA │ │
@@ -259,7 +259,7 @@ __END__
 
 =item pretty_table
 
-Function.  Exported by default.  Calls PrettyTable->plain_text(@_).
+Function.  Exported by default.  Calls Text::PrettyTable->plain_text(@_).
 
     print pretty_table([qw(one two three)]);
 
@@ -271,12 +271,12 @@ Method.  Can be called as a class method or an object method.
 When called as a class method, it will first use args passed as a second
 parameter to instatiate an object.
 
-    my $pt = PrettyTable->new({auto_collapse => 100});
+    my $pt = Text::PrettyTable->new({auto_collapse => 100});
     print $pt->plain_text($data);
 
     # or
 
-    print PrettyTable->plain_text($data, {auto_collapse => 100});
+    print Text::PrettyTable->plain_text($data, {auto_collapse => 100});
 
 =back
 
@@ -296,7 +296,7 @@ not in this sort order will not be present in the output.
 =item split
 
 Default is 100.  Length at which to split long lines.  Can also be set
-via $PrettyTable::split.
+via $Text::PrettyTable::split.
 
 =item title
 
@@ -315,7 +315,7 @@ pass in a title header for these as well.
 Now default true.  Enables unicode box borders.  Can be either a true
 value, or can be a 16 element array defining the border box (See the
 code for a sample of alternate boxes).  Can also be set via
-$PrettyTable::unibox.
+$Text::PrettyTable::unibox.
 
 =back
 
