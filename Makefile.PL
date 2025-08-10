@@ -2,16 +2,12 @@ use 5.008000;
 use ExtUtils::MakeMaker;
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
+
 WriteMakefile(
     NAME              => 'Text::PrettyTable',
-    VERSION_FROM      => 'lib/Text/PrettyTable.pm', # finds $VERSION, requires EU::MM from perl >= 5.5
+    VERSION_FROM      => 'lib/Text/PrettyTable.pm',
     PREREQ_PM         => {}, # e.g., Module::Name => 1.1
-    ABSTRACT_FROM     => 'lib/Text/PrettyTable.pm', # retrieve abstract from module
+    ABSTRACT_FROM     => 'lib/Text/PrettyTable.pm',
     AUTHOR            => 'Rob Brown <bbb@cpan.org>',
     LICENSE           => 'artistic',
-    LIBS              => [''], # e.g., '-lm'
-    DEFINE            => '', # e.g., '-DHAVE_SOMETHING'
-    INC               => '-I.', # e.g., '-I. -I/usr/include/other'
-	# Un-comment this if you add C files to link with later:
-    # OBJECT            => '$(O_FILES)', # link all the C files too
 );
