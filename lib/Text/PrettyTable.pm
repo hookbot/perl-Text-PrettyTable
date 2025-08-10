@@ -8,6 +8,7 @@ Text::PrettyTable - Allow for auto-fixed-widith formatting of raw data
 
 use strict;
 use warnings;
+use base qw(Exporter);
 
 our $VERSION = '0.02';
 
@@ -23,11 +24,6 @@ our $unibox = 1;
 our $split  = 100;
 our $qr_escape = "[^ -~]";
 our @EXPORT = qw(pretty_table);
-
-sub import {
-    no strict 'refs';  my $cl = shift;  my $pkg = caller;  @_ = @{"${cl}::EXPORT"} if ! @_;
-    !/^(?:_|new)/ && defined &{"${cl}::${_}"} ? (*{"${pkg}::${_}"} = \&{"${cl}::${_}"}) : die "Cannot export $_ from $cl to $pkg.\n" for @_;
-}
 
 sub new {
     my $class = shift;
