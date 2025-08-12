@@ -35,7 +35,14 @@ sub plain_text { goto &tablify }
 
 sub tablify {
     my ($self, $data, $args) = @_;
-    $self = $self->new($args || {}) if ! ref $self;
+    if (!ref $self) {
+        $self = $self->new($args || {});
+    } elsif ($args) {
+        # Override settings in new object
+        my $new_p = __PACKAGE__->new({ %$self, %$args });
+        # Clean call without $args
+        return $new_p->tablify($data);
+    }
     local $self->{'_level'} = 1 + ($self->{'_level'} || 0);
 
     my $uni   = exists($self->{'unibox'}) ? $self->{'unibox'} : $unibox;
@@ -290,7 +297,8 @@ Method.  Alias for "tablify" only for backwards compatibility.
 Method.  Can be called as a static class method or an object method.
 The first argument $data must be a HASH ref or ARRAY ref.
 Returns a string of a table represention of the $data structure.
-Optional $args hash can be used to override default settings.
+Optional $args hash can be used to override previous object settings
+or to override default settings.
 
     print Text::PrettyTable->tablify($data, {auto_collapse => 100});
 
