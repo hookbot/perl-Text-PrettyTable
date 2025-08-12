@@ -4,6 +4,8 @@ package Text::PrettyTable;
 
 Text::PrettyTable - Allow for auto-fixed-widith formatting of raw data
 
+Doesn't require any dependencies.
+
 =cut
 
 use strict;
@@ -358,5 +360,23 @@ code for a sample of alternate boxes).  Can also be set via
 $Text::PrettyTable::unibox.
 
 =back
+
+=head1 SEE ALSO
+
+Similar idea with the following:
+
+  Data::Format::Pretty::Console
+
+=head1 AUTHOR
+
+Rob Brown <bbb@cpan.org>
+
+Paul Seamons <paul@seamons.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2025 by Rob Brown <bbb@cpan.org>
+
+This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
 
 =cut
