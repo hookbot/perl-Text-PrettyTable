@@ -30,10 +30,10 @@ sub new {
     return bless ref($_[0]) ? $_[0] : {@_}, $class;
 }
 
-sub pretty_table { __PACKAGE__->_tablify(@_) }
-sub plain_text { shift->_tablify(@_) }
+sub pretty_table { __PACKAGE__->tablify(@_) }
+sub plain_text { goto &tablify }
 
-sub _tablify {
+sub tablify {
     my ($self, $data, $args) = @_;
     $self = $self->new($args || {}) if ! ref $self;
     local $self->{'_level'} = 1 + ($self->{'_level'} || 0);
@@ -67,7 +67,7 @@ sub _tablify {
                          : (defined(&JSON::false) && JSON::false() eq $val) ? '(false)'
                          : "\\\"$$val\"";
                 } else {
-                    chomp($val = $self->_tablify($val));
+                    chomp($val = $self->tablify($val));
                     $_split = 0 if $_split && $val =~ /^\Q$border[4]\E/ && $val =~ /\Q$border[14]\E$/;
                 }
             }
@@ -118,7 +118,7 @@ sub _tablify {
         if (length($sep) - 1 > $cols) {
             local $self->{'collapse'} = 1;
             local $self->{'_level'} if $self->{'_level'} == 1;
-            return $self->_tablify($data);
+            return $self->tablify($data);
         }
     }
 
@@ -257,26 +257,58 @@ __END__
 
 =over 4
 
-=item pretty_table
+=item pretty_table( $data [, $args] )
 
-Function.  Exported by default.  Calls Text::PrettyTable->plain_text(@_).
+Function.  Exported by default.  Calls Text::PrettyTable->tablify(@_).
+
+    use Text::PrettyTable;
 
     print pretty_table([qw(one two three)]);
 
-    print pretty_table($data);
+    print pretty_table([qw(Alice Bob Chuck)], {title => ["Guest"]});
 
-=item plain_text
+    # Output:
+    ┌───────┐
+    │ one   │
+    │ two   │
+    │ three │
+    └───────┘
+    ┌───────┐
+    │ Guest │
+    ├───────┤
+    │ Alice │
+    │ Bob   │
+    │ Chuck │
+    └───────┘
 
-Method.  Can be called as a class method or an object method.
-When called as a class method, it will first use args passed as a second
-parameter to instatiate an object.
+=item plain_text( $data [, $args] )
 
-    my $pt = Text::PrettyTable->new({auto_collapse => 100});
-    print $pt->plain_text($data);
+Method.  Alias for "tablify" only for backwards compatibility.
+
+=item tablify( $data [, $args] )
+
+Method.  Can be called as a static class method or an object method.
+The first argument $data must be a HASH ref or ARRAY ref.
+Returns a string of a table represention of the $data structure.
+Optional $args hash can be used to override default settings.
+
+    print Text::PrettyTable->tablify($data, {auto_collapse => 100});
 
     # or
 
-    print Text::PrettyTable->plain_text($data, {auto_collapse => 100});
+    print Text::PrettyTable->tablify($data, {auto_collapse => 100});
+
+    # or
+
+    my $pt = Text::PrettyTable->new({auto_collapse => 100});
+    print $pt->tablify($data);
+
+    # or
+
+    print $pt->tablify($data, {auto_collapse => 150});
+
+    # or
+
 
 =back
 
