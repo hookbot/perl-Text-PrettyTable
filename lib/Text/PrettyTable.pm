@@ -2,9 +2,11 @@ package Text::PrettyTable;
 
 =head1 NAME
 
-Text::PrettyTable - Allow for auto-fixed-widith formatting of raw data
+Text::PrettyTable - Allow for auto-fixed-width formatting of raw data
 
-Doesn't require any dependencies.
+=head1 DEPENDENCIES
+
+This module doesn't require any dependencies.
 
 =cut
 
@@ -369,9 +371,9 @@ Similar idea with the following:
 
 =head1 AUTHOR
 
-Rob Brown <bbb@cpan.org>
-
 Paul Seamons <paul@seamons.org>
+
+Rob Brown <bbb@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
